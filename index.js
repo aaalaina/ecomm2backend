@@ -19,7 +19,7 @@ const pool  = mysql.createPool({
   database        : process.env.DATABASE
 });
 //req means REQUIRE....not request...... crazy
-app.get("/", (req,res) => {
+app.get("/ProductList", (req,res) => {
       pool.query(`SELECT * FROM plushie_products`, (err, results) => {
         if (err) {
           console.log(err)

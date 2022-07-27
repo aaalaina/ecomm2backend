@@ -4,7 +4,7 @@ const mysql = require('mysql2');
 const bodyParser = require('body-parser');
 
 const dotenv = require('dotenv').config();
-const port = 3000;
+const port = process.env.PORT || 8080;
 app.use(express.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
@@ -31,6 +31,6 @@ app.get("/ProductList", (req,res) => {
 
 
 
-app.listen(3000, () =>
+app.listen(port, () =>
 console.log("Running server on port 3000!")
 )

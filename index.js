@@ -29,7 +29,13 @@ app.get("/ProductList", (req,res) => {
     });
 
 
-
+    app.get("/ProductsInA", (req,res) => {
+      pool.query(`SELECT * FROM products ORDER BY plushname`, (err, results) => {
+        if (err) {
+          console.log(err)
+        } else {res.send(results)}
+      })
+    });
 
 app.listen(port, () =>
 console.log("Running server on port 3000!")
